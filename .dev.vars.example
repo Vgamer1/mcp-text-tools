@@ -1,0 +1,4 @@
+# Local development secrets — never commit this file
+# Copy this to .dev.vars and fill in real values
+
+STRIPE_SECRET_KEY=sk_test_YOUR_STRIPE_TEST_KEY_HERE

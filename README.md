@@ -4,8 +4,6 @@ Lightweight text processing tools for AI agents, exposed as a remote MCP server.
 
 ## Tools
 
-Lightweight text processing tools for AI agents, exposed as a remote MCP server.
-
 | Tool | Description |
 |---|---|
 | `diff_text` | Compare two strings and return a unified diff patch |

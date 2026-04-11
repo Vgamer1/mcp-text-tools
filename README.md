@@ -3,7 +3,7 @@
 Lightweight text processing tools for AI agents, exposed as a remote MCP server.
 
 ## Tools
-=======
+
 Lightweight text processing tools for AI agents, exposed as a remote MCP server.
 
 | Tool | Description |

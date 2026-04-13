@@ -2,18 +2,3 @@ name = "mcp-text-tools"
 main = "src/index.ts"
 compatibility_date = "2025-04-01"
 compatibility_flags = ["nodejs_compat"]
-
-# ── Durable Object for MCP session state ──────
-[[durable_objects.bindings]]
-name       = "MCP_OBJECT"
-class_name = "TextToolsMCP"
-
-[[migrations]]
-tag                = "v1"
-new_sqlite_classes = ["TextToolsMCP"]
-
-# ── Secrets (set via `wrangler secret put`) ───
-# STRIPE_SECRET_KEY  — your Stripe secret key
-
-# ── Local dev vars (never commit real values) ─
-# See .dev.vars for local development overrides

@@ -3,7 +3,6 @@ import { McpAgent } from "agents/mcp";
 import {
   PaymentState,
   experimental_PaidMcpAgent as PaidMcpAgent,
-  generatePaidToolConfig,
 } from "@stripe/agent-toolkit/cloudflare";
 import { createTwoFilesPatch } from "diff";
 import { estimateTokenCount, splitByTokens } from "tokenx";
@@ -51,7 +50,13 @@ export class TextToolsMCP extends PaidMcpAgent<Bindings, State, Props> {
         const removed = lines.filter(l => l.startsWith("-") && !l.startsWith("---")).length;
         return { content: [{ type: "text", text: JSON.stringify({ patch, added, removed }) }] };
       },
-      generatePaidToolConfig("diff two text strings")
+      {
+        paymentReason: "diff two text strings",
+        checkout: {
+          mode: "payment",
+          line_items: [{ price: "YOUR_STRIPE_PRICE_ID", quantity: 1 }],
+        },
+      }
     );
 
     // ── PAID ─────────────────────────────────
@@ -86,7 +91,13 @@ export class TextToolsMCP extends PaidMcpAgent<Bindings, State, Props> {
           }],
         };
       },
-      generatePaidToolConfig("split text into token-sized chunks")
+      {
+        paymentReason: "split text into token-sized chunks",
+        checkout: {
+          mode: "payment",
+          line_items: [{ price: "YOUR_STRIPE_PRICE_ID", quantity: 1 }],
+        },
+      }
     );
 
     // ── ADD MORE TOOLS BELOW ──────────────────
